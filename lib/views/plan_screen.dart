@@ -20,7 +20,7 @@ class _PlanScreenState extends State<PlanScreen> {
         FocusScope.of(context).requestFocus(FocusNode());
       });
   }
-  
+
   Widget build(BuildContext context) {
     return Scaffold(
     // ganti ‘Namaku' dengan Nama panggilan Anda
@@ -50,6 +50,11 @@ class _PlanScreenState extends State<PlanScreen> {
       itemCount: plan.tasks.length,
       itemBuilder: (context, index) =>
       _buildTaskTile(plan.tasks[index], index),
+      controller: scrollController,
+      keyboardDismissBehavior: Theme.of(context).platform ==
+      TargetPlatform.iOS
+                ? ScrollViewKeyboardDismissBehavior.onDrag
+                : ScrollViewKeyboardDismissBehavior.manual,
     );
   }
 
