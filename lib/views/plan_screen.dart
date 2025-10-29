@@ -91,4 +91,9 @@ class _PlanScreenState extends State<PlanScreen> {
       ),
     );
   }
+
+  void dispose() {
+    scrollController.dispose();
+    super.dispose();
+  }
 }
